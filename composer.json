@@ -1,0 +1,35 @@
+{
+    "name": "ancoka/larav-oauth2-client",
+    "description": "This is an simple OAuth client service.",
+    "type": "library",
+    "keywords": [
+        "laravel",
+        "laravel oauth",
+        "oauth"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ancoka",
+            "email": "imancoka@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "guzzlehttp/guzzle": "6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ancoka\\OAuth\\": "src/OAuth"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "minimum-stability": "stable",
+    "autoload-dev": {
+        "psr-4": {
+            "Ancoka\\OAuth\\Tests\\": "tests/"
+        }
+    }
+}

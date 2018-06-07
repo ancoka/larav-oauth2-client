@@ -1,0 +1,4 @@
+
+
+// OAuth 认证
+OAuth::routes();

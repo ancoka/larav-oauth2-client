@@ -1,0 +1,5 @@
+/vendor
+/.idea
+/.settings
+.DS_Store
+Thumbs.db
