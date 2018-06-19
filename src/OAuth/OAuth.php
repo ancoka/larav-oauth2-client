@@ -37,7 +37,6 @@ class OAuth
      */
     private $headers = [
         'Content-Type' => 'application/x-www-form-urlencoded',
-        'Authorization' => 'Basic YWNtZTphY21lc2VjcmV0',
     ];
 
     /**
@@ -95,7 +94,7 @@ class OAuth
         $data = [];
         try {
             $response = $client->request('POST', $this->token_url, [
-                'headers' => $this->headers,
+                'headers' => $this->getHeaders(),
                 'form_params' => $this->getTokenFields($code)
             ]);
 
@@ -126,7 +125,7 @@ class OAuth
         $data = [];
         try {
             $response = $client->request('POST', $this->token_url, [
-                'headers' => $this->headers,
+                'headers' => $this->getHeaders(),
                 'form_params' => $this->getRefreshTokenFields($refreshToken)
             ]);
 
@@ -259,5 +258,17 @@ class OAuth
             ]);
         }
         return self::$httpClient;
+    }
+
+    /**
+     * 获取请求头
+     * @return array
+     */
+    protected function getHeaders()
+    {
+        $headers = $this->headers;
+        $headers['Authorization'] = $this->config['client_token'];
+
+        return $headers;
     }
 }
