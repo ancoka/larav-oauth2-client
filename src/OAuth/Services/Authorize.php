@@ -2,9 +2,8 @@
 /**
  * Created by PhpStorm.
  * File: Authorize.php
- * User: MW
- * Date: 2018/6/2
- * Time: 17:35
+ * User: Ancoka <imancoka@gmail.com>
+ * Created on 2018/6/2 17:35
  */
 namespace Ancoka\OAuth\Services;
 

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * File: OAuthMakeCommand.php
+ * User: Ancoka <imancoka@gmail.com>
+ * Created on 2018/7/2 15:36
+ */
 namespace Ancoka\OAuth\Console;
 
 use Illuminate\Console\Command;

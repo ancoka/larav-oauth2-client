@@ -2,9 +2,8 @@
 /**
  * Created by PhpStorm.
  * File: OAuth.php
- * User: MW
- * Date: 2018/6/2
- * Time: 11:37
+ * User: Ancoka <imancoka@gmail.com>
+ * Created on 2018/6/2 11:37
  */
 namespace Ancoka\OAuth;
 

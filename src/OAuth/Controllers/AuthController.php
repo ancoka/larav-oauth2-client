@@ -2,9 +2,8 @@
 /**
  * Created by PhpStorm.
  * File: AuthController.php
- * User: MW
- * Date: 2018/6/2
- * Time: 16:50
+ * User: Ancoka <imancoka@gmail.com>
+ * Created on 2018/6/2 16:50
  */
 namespace Ancoka\OAuth\Controllers;
 

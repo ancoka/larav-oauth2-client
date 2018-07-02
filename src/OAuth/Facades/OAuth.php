@@ -2,9 +2,8 @@
 /**
  * Created by PhpStorm.
  * File: OAuthFacade.php
- * User: MW
- * Date: 2018/6/2
- * Time: 14:24
+ * User: Ancoka <imancoka@gmail.com>
+ * Created on 2018/6/2 14:24
  */
 
 namespace Ancoka\OAuth\Facades;

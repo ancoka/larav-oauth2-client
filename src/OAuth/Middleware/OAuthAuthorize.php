@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * File: OAuthAuthorize.php
+ * User: Ancoka <imancoka@gmail.com>
+ * Created on 2018/6/2 14:24
+ */
 namespace Ancoka\OAuth\Middleware;
 
 use Closure;
