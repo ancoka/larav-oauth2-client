@@ -270,7 +270,7 @@ class OAuth
     protected function getHeaders()
     {
         $headers = $this->headers;
-        $headers['Authorization'] = $this->config['client_token'];
+        $headers['Authorization'] = $this->client_token;
 
         return $headers;
     }
