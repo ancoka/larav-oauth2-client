@@ -12,12 +12,24 @@ use Illuminate\Support\Facades\Session;
 
 class Authorize
 {
+    /**
+     * @var \Illuminate\Config\Repository|mixed
+     */
     private $domain;
 
+    /**
+     * @var \Illuminate\Config\Repository|mixed
+     */
     private $permissionUrl;
 
+    /**
+     * @var null
+     */
     private static $instance = null;
 
+    /**
+     * Authorize constructor.
+     */
     private function __construct()
     {
         $this->domain = config('oauth_client.authorization_domain');
@@ -25,7 +37,8 @@ class Authorize
     }
 
     /**
-     * 登录实例
+     * Authorize instance
+     *
      * @return Authorize|null
      */
     public static function instance()
@@ -36,6 +49,11 @@ class Authorize
         return self::$instance;
     }
 
+    /**
+     * Authorize login
+     *
+     * @return bool
+     */
     public static function login()
     {
         $client = new Client([
@@ -63,19 +81,23 @@ class Authorize
                 }
             }
         } catch (\Exception $e) {
-            // 接口异常
+            // @TODO
         }
 
         return $isLogin;
     }
 
+    /**
+     * Authorize logout
+     */
     public static function logout()
     {
-
+        // @TODO
     }
 
     /**
-     * 获取登录用户信息
+     * Authorized user information
+     *
      * @return array|mixed
      */
     public static function user()
@@ -88,7 +110,8 @@ class Authorize
     }
 
     /**
-     * 判断是否登录
+     * user has login
+     *
      * @return bool
      */
     public static function hasLogin()
@@ -97,7 +120,8 @@ class Authorize
     }
 
     /**
-     * 获取认证 Token
+     * Authorization Token
+     *
      * @return string
      */
     protected static function getAuthorizationToken()
@@ -115,6 +139,5 @@ class Authorize
 
     private function __clone()
     {
-
     }
 }
