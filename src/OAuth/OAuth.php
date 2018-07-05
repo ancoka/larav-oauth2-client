@@ -19,19 +19,21 @@ class OAuth
     public $app;
 
     /**
-     * OAuth 配置
+     * OAuth configuration
+     *
      * @var array
      */
     private $config = [];
 
     /**
-     * http client
+     * HTTP client
      * @var null
      */
     private static $httpClient = null;
 
     /**
-     * 接口请求头
+     * Default request headers
+     *
      * @var array
      */
     private $headers = [
@@ -40,6 +42,7 @@ class OAuth
 
     /**
      * OAuth constructor.
+     *
      * @param Application $app
      * @param array $config
      */
@@ -59,7 +62,7 @@ class OAuth
     }
 
     /**
-     * 生成6位随机字符串
+     * Generate random string
      *
      * @return bool|string
      */
@@ -70,7 +73,7 @@ class OAuth
     }
 
     /**
-     * 获取 oauth authorize 跳转链接
+     * Get oauth authorize jump link
      *
      * @param $state
      * @return string
@@ -82,7 +85,7 @@ class OAuth
     }
 
     /**
-     * 获取 Access Token
+     * Get access token
      *
      * @param $code
      * @return array
@@ -106,14 +109,14 @@ class OAuth
                 }
             }
         } catch (\Exception $e) {
-            // 接口异常
+            // @TODO
         }
 
         return $data;
     }
 
     /**
-     * 刷新 Access Token
+     * Refresh access token
      *
      * @param $token
      * @return mixed
@@ -137,14 +140,14 @@ class OAuth
                 }
             }
         } catch (\Exception $e) {
-            // 接口异常
+            // @TODO
         }
 
         return $data;
     }
 
     /**
-     * 删除 Access Token 并登出
+     * Revoke access token
      *
      * @param $token
      * @return string
@@ -156,7 +159,7 @@ class OAuth
     }
 
     /**
-     * 注册 OAuth 认证路由
+     * Register OAuth Authentication route
      *
      * @return void
      */
@@ -168,7 +171,7 @@ class OAuth
     }
 
     /**
-     * 构建获取 code 的请求参数
+     * Get authorize code request params
      *
      * @param null $state
      * @return array
@@ -201,7 +204,7 @@ class OAuth
     }
 
     /**
-     * 构建刷新 token 的请求参数
+     * Get refresh access token request params
      *
      * @param $token
      * @return array
@@ -215,7 +218,7 @@ class OAuth
     }
 
     /**
-     * 移除 Token
+     * Get revoke access token request params
      *
      * @param $token
      * @return array
@@ -229,7 +232,7 @@ class OAuth
     }
 
     /**
-     * 获取回调地址
+     * Get callback url
      *
      * @return string
      */
@@ -243,7 +246,7 @@ class OAuth
     }
 
     /**
-     * 获取 http client
+     * Get http client
      *
      * @return Client|null
      */
@@ -260,13 +263,14 @@ class OAuth
     }
 
     /**
-     * 获取请求头
+     * Get request headers
+     *
      * @return array
      */
     protected function getHeaders()
     {
         $headers = $this->headers;
-        $headers['Authorization'] = $this->config['client_token'];
+        $headers['Authorization'] = $this->client_token;
 
         return $headers;
     }

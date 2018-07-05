@@ -40,20 +40,11 @@ larav oauth2 client 是一个针对 Laravel framework 实现的一个简单的 �
 5. 运行如下命令发布扩展包内配置文件 ```config/oauth_client.php```
 
    ```
-   php artisan vendor:publish
+   php artisan vendor:publish --provider="Ancoka\OAuth\OAuthServiceProvider"
    ```
 
    
 
-6. 使用中间件，你需要添加如下内容：
-
-   ```
-   'oauth.authorize' => Ancoka\OAuth\Middleware\OAuthAuthorize::class,
-   ```
-
-   到 ```app/Http/Kernel.php ``` 文件 ```routeMiddleware``` 数组。
-
-   
 
 ## 使用
 

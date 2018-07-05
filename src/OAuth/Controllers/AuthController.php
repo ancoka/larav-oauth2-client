@@ -16,8 +16,10 @@ use Ancoka\OAuth\Services\Authorize;
 class AuthController extends Controller
 {
     /**
-     * 登录
+     * OAuth login
+     *
      * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function login(Request $request)
     {
@@ -27,6 +29,12 @@ class AuthController extends Controller
         return redirect($url);
     }
 
+    /**
+     * OAuth callback
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function callback(Request $request)
     {
         $requestUrl = $request->cookie('redirect_uri', $request->root());
@@ -63,6 +71,12 @@ class AuthController extends Controller
         return redirect($requestUrl)->withCookies([Cookie::forget('redirect_uri')]);
     }
 
+    /**
+     * OAuth logout
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function logout(Request $request)
     {
         if ($request->session()->has('oauth.token')) {
