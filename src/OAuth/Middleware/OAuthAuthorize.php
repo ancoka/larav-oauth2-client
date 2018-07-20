@@ -31,7 +31,7 @@ class OAuthAuthorize
         if ($request->session()->has('oauth.token')) {
             $oauth2token = $request->session()->get('oauth.token');
             $oauth2token = json_decode($oauth2token, true);
-            if (!empty($oauth2token)) {
+            if (!empty($oauth2token) && $oauth2token['expires_time'] - time() <= 1800) {
                 $oauth2token = OAuth::refreshToken($oauth2token['refresh_token']);
                 $request->session()->put('oauth.token', json_encode($oauth2token, JSON_UNESCAPED_UNICODE));
             }
